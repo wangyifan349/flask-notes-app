@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}主页{% endblock %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">欢迎，{{ username }}！</h1>
+    <p class="lead">管理您的笔记，随时随地访问。</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('notes') }}" role="button">查看笔记</a>
+</div>
+{% endblock %}
