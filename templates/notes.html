@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}我的笔记{% endblock %}
+{% block content %}
+<h2>我的笔记</h2>
+<a href="{{ url_for('newNote') }}" class="btn btn-success mb-3">新建笔记</a>
+{% if notes %}
+<table class="table table-striped">
+<thead><tr><th>标题</th><th>操作</th></tr></thead>
+<tbody>
+{% for note in notes %}
+<tr>
+    <td>{{ note.title }}</td>
+    <td>
+        <a href="{{ url_for('editNote', noteId=note.id) }}" class="btn btn-secondary btn-sm">编辑</a>
+        <form action="{{ url_for('deleteNote', noteId=note.id) }}" method="post" style="display:inline-block;">
+            <button type="submit" class="btn btn-danger btn-sm">删除</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>还没有笔记。</p>
+{% endif %}
+{% endblock %}
