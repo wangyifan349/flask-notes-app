@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}搜索笔记{% endblock %}
+{% block content %}
+<h2>搜索笔记</h2>
+<form method="POST" class="form-inline mb-3">
+    {{ form.hidden_tag() }}
+    <div class="form-group mb-2">
+        {{ form.query(class="form-control mr-2", placeholder="搜索内容") }}
+    </div>
+    {{ form.submit(class="btn btn-primary mb-2") }}
+</form>
+{% endblock %}
