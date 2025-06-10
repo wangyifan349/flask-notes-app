@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}编辑笔记{% endblock %}
+{% block content %}
+<h2>编辑笔记</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.title.label }}{{ form.title(class="form-control") }}
+        {% for error in form.title.errors %}<small class="text-danger">{{ error }}</small>{% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form.content.label }}{{ form.content(class="form-control", rows="10") }}
+        {% for error in form.content.errors %}<small class="text-danger">{{ error }}</small>{% endfor %}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+    <a href="{{ url_for('notes') }}" class="btn btn-secondary">返回</a>
+</form>
+{% endblock %}
