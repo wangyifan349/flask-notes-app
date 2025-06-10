@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}搜索结果{% endblock %}
+{% block content %}
+<h2>搜索结果</h2>
+{% if notes %}
+<table class="table table-striped">
+<thead><tr><th>标题</th><th>操作</th></tr></thead>
+<tbody>
+{% for note in notes %}
+<tr>
+    <td>{{ note.title }}</td>
+    <td>
+        <a href="{{ url_for('editNote', noteId=note.id) }}" class="btn btn-secondary btn-sm">编辑</a>
+        <form action="{{ url_for('deleteNote', noteId=note.id) }}" method="post" style="display:inline-block;">
+            <button type="submit" class="btn btn-danger btn-sm">删除</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p>未找到匹配的笔记。</p>
+{% endif %}
+{% endblock %}
