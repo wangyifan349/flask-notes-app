@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ user.username }} 的笔记{% endblock %}
+{% block content %}
+<h2>{{ user.username }} 的笔记</h2>
+{% if notes %}
+<ul class="list-group">
+    {% for note in notes %}
+    <li class="list-group-item">
+        <h5>{{ note.title }}</h5>
+        <p>{{ note.content }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>这个用户还没有任何笔记。</p>
+{% endif %}
+{% endblock %}
