@@ -137,7 +137,6 @@ MIT License
 
 ---
 
-**作者：王一帆**  
 **邮箱：wangyifan349@gmail.com**  
 
 **GitHub：https://github.com/wangyifan349**
